@@ -32,12 +32,29 @@ pub fn get_dictionary() -> Result<Vec<DictionaryEntry>, &'static str> {
     get_dictionary_dataset(DictionaryLocation::MarkupDictionary)
 }
 
+/// Get full list of dictionary words.
+/// This version does not contain additional HTML formatting or any tags.
+///
+/// 
+/// # Examples
+/// 
+/// ```
+/// use old_icelandic_zoega::{get_no_markup_dictionary, DictionaryEntry};
+/// 
+/// let dictionary: Vec<DictionaryEntry> = get_no_markup_dictionary().unwrap();
+/// 
+/// println!("First word is {}, first definition for it being {}", &dictionary[0].word, &dictionary[0].definitions[0])
+/// ```
+pub fn get_no_markup_dictionary() -> Result<Vec<DictionaryEntry>, &'static str> {
+    get_dictionary_dataset(DictionaryLocation::NoMarkupDictionary)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn has_expected_entry_content() {
+    fn dictionary_has_expected_entry_content() {
         let result = get_dictionary();
         let dictionary = result.unwrap();
         let entry: &DictionaryEntry = &dictionary[1989];
@@ -47,8 +64,26 @@ mod tests {
     }
 
     #[test]
-    fn dictionary_has_35207_entries() {
+    fn dictionary_has_29951_entries() {
         let result = get_dictionary();
+        let dictionary = result.unwrap();
+
+        assert_eq!(dictionary.len(), 29951);
+    }
+
+    #[test]
+    fn no_markup_dictionary_has_expected_entry_content() {
+        let result = get_no_markup_dictionary();
+        let dictionary = result.unwrap();
+        let entry: &DictionaryEntry = &dictionary[1989];
+
+        assert_eq!(entry.word, "árbakki");
+        assert_eq!(entry.definitions[0], "m. bank of a river.");
+    }
+
+    #[test]
+    fn no_markup_dictionary_has_29951_entries() {
+        let result = get_no_markup_dictionary();
         let dictionary = result.unwrap();
 
         assert_eq!(dictionary.len(), 29951);
