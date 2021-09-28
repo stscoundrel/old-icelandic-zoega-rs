@@ -5,4 +5,4 @@ mod dictionary;
 pub use dictionary::DictionaryEntry;
 
 // Publicly export main getter methods.
-pub use dictionary::get_dictionary;
+pub use dictionary::{get_dictionary, get_no_markup_dictionary};
