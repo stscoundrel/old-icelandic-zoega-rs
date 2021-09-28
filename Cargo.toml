@@ -9,7 +9,10 @@ description = """
 Old Icelandic dictionary for Rust. From "A Concise Dictionary of Old Icelandic" by Geir Zoëga
 """
 edition = "2018"
+exclude = ["tests/*"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
