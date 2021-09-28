@@ -1,12 +1,12 @@
 [package]
-name = "template"
+name = "old_icelandic_zoega"
 version = "1.0.0"
 authors = ["stscoundrel / Sampo Silvennoinen"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/stscoundrel/rust-template"
+repository = "https://github.com/stscoundrel/old-icelandic-zoega-rs"
 description = """
-Add definition here
+Old Icelandic dictionary for Rust. From "A Concise Dictionary of Old Icelandic" by Geir Zoëga
 """
 edition = "2018"
 
