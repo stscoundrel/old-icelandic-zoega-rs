@@ -7,11 +7,13 @@ The dictionary consists of 29 000+ Old Icelandic words with English translations
 
 ### Install
 
-Add this to your `Cargo.toml`:
+`cargo add old_icelandic_zoega`
+
+Or add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-old_icelandic_zoega = "1.0.0"
+old_icelandic_zoega = "1.1.0"
 ```
 
 ### Usage
